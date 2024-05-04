@@ -32,5 +32,11 @@ namespace CoffeeFancy
             fAccountProfile f = new fAccountProfile();
             f.ShowDialog();
         }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAdmin f = new fAdmin();
+            f.ShowDialog();
+        }
     }
 }
