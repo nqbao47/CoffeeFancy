@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeFancy.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +20,25 @@ namespace CoffeeFancy
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fTableManager f = new fTableManager();
-            this.Hide();
-            f.ShowDialog(); // Sử dụng Dialog vì tính chất của nó là đợi để hiển thị lên
-            this.Show();
+            string userName = txtUserName.Text;
+            string passWord = txtPassWord.Text;
+
+            if(Login(userName, passWord))
+            {
+                fTableManager f = new fTableManager();
+                this.Hide();
+                f.ShowDialog(); // Sử dụng Dialog vì tính chất của nó là đợi để hiển thị lên
+                this.Show();
+            } else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+            }
         }
 
+        bool Login(string userName, string passWord)
+        {
+            return AccountDAO.Instance.Login(userName, passWord);    
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
