@@ -49,6 +49,10 @@
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -65,7 +69,7 @@
             this.thôngTinTàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1157, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1157, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,12 +119,19 @@
             // 
             // lsvInvoice
             // 
+            this.lsvInvoice.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lsvInvoice.GridLines = true;
             this.lsvInvoice.HideSelection = false;
             this.lsvInvoice.Location = new System.Drawing.Point(3, 3);
             this.lsvInvoice.Name = "lsvInvoice";
             this.lsvInvoice.Size = new System.Drawing.Size(489, 409);
             this.lsvInvoice.TabIndex = 0;
             this.lsvInvoice.UseCompatibleStateImageBehavior = false;
+            this.lsvInvoice.View = System.Windows.Forms.View.Details;
             this.lsvInvoice.SelectedIndexChanged += new System.EventHandler(this.nmFoodCount_SelectedIndexChanged);
             // 
             // panel3
@@ -248,6 +259,26 @@
             this.flpTable.Size = new System.Drawing.Size(628, 537);
             this.flpTable.TabIndex = 6;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tên món";
+            this.columnHeader1.Width = 215;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Số lượng";
+            this.columnHeader2.Width = 87;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Đơn giá";
+            this.columnHeader3.Width = 90;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tổng tiền";
+            this.columnHeader4.Width = 91;
+            // 
             // fTableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +326,9 @@
         private System.Windows.Forms.NumericUpDown nmDiscount;
         private System.Windows.Forms.ComboBox cbbSwitchTable;
         private System.Windows.Forms.Button btnSwitchTable;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
