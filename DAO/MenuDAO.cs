@@ -25,7 +25,7 @@ namespace CoffeeFancy.DAO
         {
             List<Menu> listMenu =  new List<Menu> ();
 
-            string query = "SELECT f.name, ii.count, f.price , f.price*ii.count as totalPrice FROM dbo.InvoiceInfo as ii, dbo.Invoice as i, dbo.Food as f \r\nWHERE ii.idInvoice = i.id AND ii.idFood = f.id AND i.idTable =" + id;
+            string query = "SELECT f.name, ii.count, f.price , f.price*ii.count as totalPrice FROM dbo.InvoiceInfo as ii, dbo.Invoice as i, dbo.Food as f \r\nWHERE ii.idInvoice = i.id AND ii.idFood = f.id AND i.status = 0 AND i.idTable =" + id;
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

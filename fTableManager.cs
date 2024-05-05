@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Menu = CoffeeFancy.DTO.Menu;
@@ -52,16 +54,22 @@ namespace CoffeeFancy
         {
             lsvInvoice.Items.Clear();
             List<Menu> listInvoiceInfos = MenuDAO.Instance.GetListMenuByTable(id);
-            
+            float totalPrice = 0;
             foreach (Menu item in listInvoiceInfos)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add((item.Count.ToString()));
                 lsvItem.SubItems.Add((item.Price.ToString()));
                 lsvItem.SubItems.Add((item.TotalPrice.ToString()));
+                totalPrice += item.TotalPrice;
 
                 lsvInvoice.Items.Add(lsvItem);
             }
+            CultureInfo culture = new CultureInfo("vi-VN");
+
+            // Thread.CurrentThread.CurrentCulture = culture;
+
+            txtTotalPrice.Text = totalPrice.ToString("c", culture);
         }
 
         #endregion
