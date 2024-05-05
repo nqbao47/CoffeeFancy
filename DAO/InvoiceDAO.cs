@@ -44,9 +44,9 @@ namespace CoffeeFancy.DAO
             return -1;
         }
 
-        public void CheckOut(int id)
+        public void CheckOut(int id, int discount)
         {
-            string query = "UPDATE dbo.Invoice SET status = 1 Where id =" + id;
+            string query = "UPDATE dbo.Invoice SET status = 1, " + "discount =" + discount + " Where id =" + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
 

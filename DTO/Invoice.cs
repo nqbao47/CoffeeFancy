@@ -9,11 +9,12 @@ namespace CoffeeFancy.DTO
 {
     public class Invoice
     {
-        public Invoice(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status) { 
+        public Invoice(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status, int discount = 0) { 
             this.ID = id;
             this.DateCheckIn = dateCheckIn;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
+            this.Discount = discount;
         }
 
         public Invoice(DataRow row) {
@@ -26,7 +27,10 @@ namespace CoffeeFancy.DTO
                 this.DateCheckOut = (DateTime?)dateCheckOutTemp;
 
             this.Status = (int)row["status"];
+            this.Discount = (int)row["discount"];
         }
+
+        private int discount;
 
         private int status;
 
@@ -40,5 +44,6 @@ namespace CoffeeFancy.DTO
         public DateTime? DateCheckIn { get => dateCheckIn; set => dateCheckIn = value; }
         public DateTime? DateCheckOut { get => dateCheckOut; set => dateCheckOut = value; }
         public int Status { get => status; set => status = value; }
+        public int Discount { get => discount; set => discount = value; }
     }
 }

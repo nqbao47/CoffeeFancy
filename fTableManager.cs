@@ -163,18 +163,27 @@ namespace CoffeeFancy
 
             // Lấy ra id
             int idInvoice = InvoiceDAO.Instance.GetUncheckInvoiceIDbyTableID(table.ID);
+            int discount = (int)nmDiscount.Value;
 
             /* Trigger cho việc CheckOut (Xác định trạng thái của bàn sau khi CheckOut)
              * 1 - Tạo trigger Update or Insert cho InvoiceInfo (Update thông tin thành `Có người`)
              * 2 - Tạo trigger Update cho Invoice (Update thông tin thành `Trống`)
              */
 
+            // Tính kết quả
+            double totalPrice = Convert.ToDouble(txtTotalPrice.Text.Split(',')[0]); ;
+            double finalTotalPrice = totalPrice - (totalPrice/100) * discount;
+
+
             // Kiểm tra xem invoice đang ở trạng thái nào (Chưa có - Đã thanh toán - Chưa thanh toán)
             if (idInvoice != -1)
             {
-                if(MessageBox.Show("Xác nhận thanh toán cho: " + table.Name, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if(MessageBox.Show(string.Format(
+                    "Xác nhận thanh toán cho: {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá \n{1} - ({1} / 100) x {2} = {3} ", table.Name, totalPrice, discount, finalTotalPrice), 
+                    "Thông báo", 
+                    MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    InvoiceDAO.Instance.CheckOut(idInvoice);
+                    InvoiceDAO.Instance.CheckOut(idInvoice, discount);
                     ShowInvoice(table.ID);
                     LoadTable();
                 } 
