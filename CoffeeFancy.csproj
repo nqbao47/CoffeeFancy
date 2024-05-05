@@ -47,11 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\InvoiceDAO.cs" />
     <Compile Include="DAO\InvoiceInfoDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
+    <Compile Include="DTO\Category.cs" />
+    <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Invoice.cs" />
     <Compile Include="DTO\InvoiceInfo.cs" />
     <Compile Include="DTO\Menu.cs" />

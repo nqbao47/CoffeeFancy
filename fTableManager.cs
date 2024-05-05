@@ -23,9 +23,24 @@ namespace CoffeeFancy
             InitializeComponent();
 
             LoadTable();
+            LoadCategory();
         }
 
         #region METHOD
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
+            cbbCategory.DataSource = listCategory;
+            cbbCategory.DisplayMember = "Name";
+        }
+
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
+            cbbFood.DataSource = listFood;
+            cbbFood.DisplayMember = "Name";
+        }
+
         void LoadTable()
         {
             List<Table> tableList = TableDAO.Instance.LoadTableList();
@@ -102,5 +117,20 @@ namespace CoffeeFancy
             f.ShowDialog();
         }
         #endregion
+
+        private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
+
+            LoadFoodListByCategoryID(id);
+        }
     }
 }

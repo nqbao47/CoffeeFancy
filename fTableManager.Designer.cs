@@ -286,6 +286,7 @@
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(421, 24);
             this.cbbCategory.TabIndex = 0;
+            this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
             // flpTable
             // 
