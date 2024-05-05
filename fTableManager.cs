@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace CoffeeFancy
 
             LoadTable();
             LoadCategory();
+            LoadComboBoxTable(cbbSwitchTable);
         }
 
         #region METHOD
@@ -86,6 +88,12 @@ namespace CoffeeFancy
             // Thread.CurrentThread.CurrentCulture = culture;
 
             txtTotalPrice.Text = totalPrice.ToString("c", culture);
+        }
+
+        void LoadComboBoxTable(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Name";
         }
 
         #endregion
@@ -191,7 +199,44 @@ namespace CoffeeFancy
             }
         }
 
+
+
+        /*private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            int id1 = (lsvInvoice.Tag as Table).ID; //lấy ra id table đang chọn
+            int id2 = (cbbSwitchTable.SelectedItem as Table).ID; //lấy ra id table muốn chuyển bàn
+            if (MessageBox.Show(string.Format("Bạn có muốn chuyển bàn {0} qua bàn {1} không?", (lsvInvoice.Tag as Table).Name, (cbbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                TableDAO.Instance.SwitchTable(id1, id2);
+                //chuyển xong sẽ update lại table ban đầu thành trống
+                string query1 = "update TableFood set status = N'Trống' where id=" + id1;
+                //update table chuyển qua thành có người
+                string query2 = "update TableFood set status = N'Có người' where id=" + id2;
+                SqlCommand cmd = new SqlCommand(query1, sql);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(query2, sql);
+                cmd.ExecuteNonQuery();
+                LoadTable();
+            }
+        }*/
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            int id1 = (lsvInvoice.Tag as Table).ID;
+            int id2 = (cbbSwitchTable.SelectedItem as Table).ID;
+
+            if (MessageBox.Show(string.Format(
+                "Bạn có chắc muốn chuyển {0} sang {1} không ?", (lsvInvoice.Tag as Table).Name, (cbbSwitchTable.SelectedItem as Table).Name),
+                "Thông báo",
+                MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                TableDAO.Instance.SwitchTable(id1, id2);
+                LoadTable();
+            }
+        }
+
         #endregion
+
 
     }
 }
