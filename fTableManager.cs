@@ -19,9 +19,15 @@ namespace CoffeeFancy
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        private Account loginAccount;
+
+        public Account LoginAccount { get { return loginAccount; } set { loginAccount = value; ChangeAccount(LoginAccount.Type); }  }
+
+        public fTableManager(Account acc)
         {
             InitializeComponent();
+
+            this.LoginAccount = acc;
 
             LoadTable();
             LoadCategory();
@@ -29,6 +35,10 @@ namespace CoffeeFancy
         }
 
         #region METHOD
+        void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+        }
         void LoadCategory()
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();

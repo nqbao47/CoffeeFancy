@@ -1,4 +1,5 @@
 ﻿using CoffeeFancy.DAO;
+using CoffeeFancy.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,9 @@ namespace CoffeeFancy
 
             if(Login(userName, passWord))
             {
-                fTableManager f = new fTableManager();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUsername(userName);
+
+                fTableManager f = new fTableManager(loginAccount);
                 this.Hide();
                 f.ShowDialog(); // Sử dụng Dialog vì tính chất của nó là đợi để hiển thị lên
                 this.Show();
