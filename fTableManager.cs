@@ -179,7 +179,7 @@ namespace CoffeeFancy
              */
 
             // Tính kết quả
-            double totalPrice = Convert.ToDouble(txtTotalPrice.Text.Split(',')[0]); ;
+            double totalPrice = Convert.ToDouble(txtTotalPrice.Text.Split(',')[0].Replace(".", ""));
             double finalTotalPrice = totalPrice - (totalPrice/100) * discount;
 
 
@@ -191,7 +191,7 @@ namespace CoffeeFancy
                     "Thông báo", 
                     MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    InvoiceDAO.Instance.CheckOut(idInvoice, discount);
+                    InvoiceDAO.Instance.CheckOut(idInvoice, discount, (float)finalTotalPrice);
                     ShowInvoice(table.ID);
                     LoadTable();
                 } 

@@ -44,9 +44,9 @@ namespace CoffeeFancy.DAO
             return -1;
         }
 
-        public void CheckOut(int id, int discount)
+        public void CheckOut(int id, int discount, float totalPrice)
         {
-            string query = "UPDATE dbo.Invoice SET status = 1, " + "discount =" + discount + " Where id =" + id;
+            string query = "UPDATE dbo.Invoice SET dateCheckOut = GETDATE(), status = 1, " + "discount =" + discount + ", totalPrice="+ totalPrice + " Where id =" + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
 
@@ -54,6 +54,11 @@ namespace CoffeeFancy.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertInvocie @idTable", new object[] {id});
 
+        }
+
+        public DataTable GetListInvoiceByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListInvoiceByDate @checkin , @checkout", new object[] {checkIn, checkOut});
         }
 
         public int GetMaxIdInvoice ()
