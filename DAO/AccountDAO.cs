@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,12 @@ namespace CoffeeFancy.DAO
             return result.Rows.Count > 0;
         }
 
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] {userName, displayName, pass, newPass});
+            
+            return result > 0;
+        }
         public Account GetAccountByUsername(string userName)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("select * from Account where userName = '" + userName + "'");
