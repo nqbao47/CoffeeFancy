@@ -32,5 +32,16 @@ namespace CoffeeFancy.DAO
 
             return listInvoiceInfo;
         }
+
+        /* Case khi insert Invoice
+         * 1 - If table ko tồn tại Invoice thì => tạo ra Invoice mới => insert info vô Invoice
+         * 2 - If table tồn tại Invoice rồi => insert info vô Invoice (!)Case Food CHƯA tồn tại
+         * 3 - If table tồn tại Invoice rồi => insert info vô Invoice (!)Case Food ĐÃ tồn tại => update lại data (count, price,...)
+         * 
+         */
+        public void InsertInvoiceInfo(int idInvoice, int idFood, int count )
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertInvoiceInfo @idInvoice , @idFood , @idCount ", new object[] { idInvoice, idFood, count });
+        }
     }
 }

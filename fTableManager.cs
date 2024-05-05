@@ -93,6 +93,7 @@ namespace CoffeeFancy
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lsvInvoice.Tag = (sender as Button).Tag;
             ShowInvoice(tableID);
         }
         private void nmFoodCount_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,7 +117,6 @@ namespace CoffeeFancy
             fAdmin f = new fAdmin();
             f.ShowDialog();
         }
-        #endregion
 
         private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,5 +132,29 @@ namespace CoffeeFancy
 
             LoadFoodListByCategoryID(id);
         }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            Table table = lsvInvoice.Tag as Table;
+
+            int idInvoice = InvoiceDAO.Instance.GetUncheckInvoiceIDbyTableID(table.ID);
+            int foodID = (cbbFood.SelectedItem as Food).ID;
+            int count = (int)nmCount.Value;
+
+            if(idInvoice == - 1) // Case: 1
+            {
+                InvoiceDAO.Instance.InsertInvoice(table.ID);
+                InvoiceInfoDAO.Instance.InsertInvoiceInfo(InvoiceDAO.Instance.GetMaxIdInvoice(), foodID, count);
+            }
+            else // Case: 2
+            {
+                InvoiceInfoDAO.Instance.InsertInvoiceInfo(idInvoice, foodID, count);
+            }
+
+            // Reload
+            ShowInvoice(table.ID);
+        }
+
+        #endregion
     }
 }

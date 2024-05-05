@@ -42,5 +42,22 @@ namespace CoffeeFancy.DAO
 
             return -1;
         }
+
+        public void InsertInvoice(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertInvocie @idTable", new object[] {id});
+
+        }
+
+        public int GetMaxIdInvoice ()
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("select MAX(id) from dbo.Invoice");
+            } catch
+            {
+                return 1;
+            }
+        }
     }
 }

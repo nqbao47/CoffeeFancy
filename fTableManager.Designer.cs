@@ -268,6 +268,7 @@
             this.btnAddFood.TabIndex = 2;
             this.btnAddFood.Text = "Thêm Món";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // cbbFood
             // 
