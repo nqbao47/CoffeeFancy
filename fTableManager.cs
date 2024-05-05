@@ -43,6 +43,7 @@ namespace CoffeeFancy
 
         void LoadTable()
         {
+            flpTable.Controls.Clear(); 
             List<Table> tableList = TableDAO.Instance.LoadTableList();
 
             foreach (Table item in tableList)
@@ -153,8 +154,35 @@ namespace CoffeeFancy
 
             // Reload
             ShowInvoice(table.ID);
+            LoadTable();
+        }
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            // Lấy ra table
+            Table table = lsvInvoice.Tag as Table;
+
+            // Lấy ra id
+            int idInvoice = InvoiceDAO.Instance.GetUncheckInvoiceIDbyTableID(table.ID);
+
+            /* Trigger cho việc CheckOut (Xác định trạng thái của bàn sau khi CheckOut)
+             * 1 - Tạo trigger Update or Insert cho InvoiceInfo (Update thông tin thành `Có người`)
+             * 2 - Tạo trigger Update cho Invoice (Update thông tin thành `Trống`)
+             */
+
+            // Kiểm tra xem invoice đang ở trạng thái nào (Chưa có - Đã thanh toán - Chưa thanh toán)
+            if (idInvoice != -1)
+            {
+                if(MessageBox.Show("Xác nhận thanh toán cho: " + table.Name, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    InvoiceDAO.Instance.CheckOut(idInvoice);
+                    ShowInvoice(table.ID);
+                    LoadTable();
+                } 
+                    
+            }
         }
 
         #endregion
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CoffeeFancy.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,12 @@ namespace CoffeeFancy.DAO
             }
 
             return -1;
+        }
+
+        public void CheckOut(int id)
+        {
+            string query = "UPDATE dbo.Invoice SET status = 1 Where id =" + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
         }
 
         public void InsertInvoice(int id)

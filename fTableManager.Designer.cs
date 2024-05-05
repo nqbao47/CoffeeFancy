@@ -42,6 +42,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.nmDiscount = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +54,6 @@
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,7 +71,7 @@
             this.thôngTinTàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1543, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1543, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +115,7 @@
             // 
             this.panel2.Controls.Add(this.lsvInvoice);
             this.panel2.Location = new System.Drawing.Point(863, 114);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(664, 511);
             this.panel2.TabIndex = 3;
@@ -130,7 +130,7 @@
             this.lsvInvoice.GridLines = true;
             this.lsvInvoice.HideSelection = false;
             this.lsvInvoice.Location = new System.Drawing.Point(4, 4);
-            this.lsvInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lsvInvoice.Margin = new System.Windows.Forms.Padding(4);
             this.lsvInvoice.Name = "lsvInvoice";
             this.lsvInvoice.Size = new System.Drawing.Size(651, 502);
             this.lsvInvoice.TabIndex = 0;
@@ -167,16 +167,28 @@
             this.panel3.Controls.Add(this.btnDiscount);
             this.panel3.Controls.Add(this.btnPay);
             this.panel3.Location = new System.Drawing.Point(863, 633);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(664, 66);
             this.panel3.TabIndex = 4;
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPrice.ForeColor = System.Drawing.Color.Red;
+            this.txtTotalPrice.Location = new System.Drawing.Point(295, 22);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
+            this.txtTotalPrice.Size = new System.Drawing.Size(239, 27);
+            this.txtTotalPrice.TabIndex = 7;
+            this.txtTotalPrice.Text = "0";
+            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbbSwitchTable
             // 
             this.cbbSwitchTable.FormattingEnabled = true;
             this.cbbSwitchTable.Location = new System.Drawing.Point(4, 37);
-            this.cbbSwitchTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbSwitchTable.Margin = new System.Windows.Forms.Padding(4);
             this.cbbSwitchTable.Name = "cbbSwitchTable";
             this.cbbSwitchTable.Size = new System.Drawing.Size(115, 24);
             this.cbbSwitchTable.TabIndex = 4;
@@ -184,7 +196,7 @@
             // btnSwitchTable
             // 
             this.btnSwitchTable.Location = new System.Drawing.Point(4, 4);
-            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(4);
             this.btnSwitchTable.Name = "btnSwitchTable";
             this.btnSwitchTable.Size = new System.Drawing.Size(115, 32);
             this.btnSwitchTable.TabIndex = 6;
@@ -194,7 +206,7 @@
             // nmDiscount
             // 
             this.nmDiscount.Location = new System.Drawing.Point(173, 36);
-            this.nmDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.nmDiscount.Minimum = new decimal(new int[] {
             100,
             0,
@@ -212,7 +224,7 @@
             // btnDiscount
             // 
             this.btnDiscount.Location = new System.Drawing.Point(173, 4);
-            this.btnDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(115, 32);
             this.btnDiscount.TabIndex = 5;
@@ -222,12 +234,13 @@
             // btnPay
             // 
             this.btnPay.Location = new System.Drawing.Point(541, 4);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(115, 59);
             this.btnPay.TabIndex = 4;
             this.btnPay.Text = "Thanh Toán";
             this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // panel4
             // 
@@ -236,7 +249,7 @@
             this.panel4.Controls.Add(this.cbbFood);
             this.panel4.Controls.Add(this.cbbCategory);
             this.panel4.Location = new System.Drawing.Point(863, 38);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(660, 69);
             this.panel4.TabIndex = 5;
@@ -244,7 +257,7 @@
             // nmCount
             // 
             this.nmCount.Location = new System.Drawing.Point(597, 23);
-            this.nmCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmCount.Margin = new System.Windows.Forms.Padding(4);
             this.nmCount.Minimum = new decimal(new int[] {
             100,
             0,
@@ -262,7 +275,7 @@
             // btnAddFood
             // 
             this.btnAddFood.Location = new System.Drawing.Point(449, 4);
-            this.btnAddFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(115, 59);
             this.btnAddFood.TabIndex = 2;
@@ -274,7 +287,7 @@
             // 
             this.cbbFood.FormattingEnabled = true;
             this.cbbFood.Location = new System.Drawing.Point(4, 37);
-            this.cbbFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbFood.Margin = new System.Windows.Forms.Padding(4);
             this.cbbFood.Name = "cbbFood";
             this.cbbFood.Size = new System.Drawing.Size(421, 24);
             this.cbbFood.TabIndex = 1;
@@ -283,7 +296,7 @@
             // 
             this.cbbCategory.FormattingEnabled = true;
             this.cbbCategory.Location = new System.Drawing.Point(4, 4);
-            this.cbbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(421, 24);
             this.cbbCategory.TabIndex = 0;
@@ -293,22 +306,10 @@
             // 
             this.flpTable.AutoScroll = true;
             this.flpTable.Location = new System.Drawing.Point(17, 38);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(4);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(837, 661);
             this.flpTable.TabIndex = 6;
-            // 
-            // txtTotalPrice
-            // 
-            this.txtTotalPrice.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.txtTotalPrice.Location = new System.Drawing.Point(295, 22);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(239, 27);
-            this.txtTotalPrice.TabIndex = 7;
-            this.txtTotalPrice.Text = "0";
-            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // contextMenuStrip2
             // 
@@ -327,7 +328,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fTableManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Fancy";
