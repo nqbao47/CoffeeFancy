@@ -19,6 +19,9 @@ namespace CoffeeFancy
     {
         // Xử lý bị thay đổi dataSource khi sử dụng Binding (mất kết nối Binding khi refresh)
         BindingSource foodList = new BindingSource();
+
+        // Lấy ra account
+        BindingSource accountList = new BindingSource();
         public fAdmin()
         {
             InitializeComponent();
@@ -35,13 +38,18 @@ namespace CoffeeFancy
         void LoadMain()
         {
             dtgvFood.DataSource = foodList;
+            dtgvAccount.DataSource = accountList;
 
             LoadDateTimePickerInvoice();
             LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadlistFood();
+            LoadAccount();
             LoadCategoryIntoCbb(cbbFoodCategory);
             AddFoodBinding();
+            AddAccountBinding();
         }
+
+
         void LoadDateTimePickerInvoice()
         {
             DateTime today = DateTime.Now;
@@ -51,6 +59,19 @@ namespace CoffeeFancy
         void LoadListInvoiceByDate(DateTime checkIn, DateTime checkOut)
         {
             dtgvInvoice.DataSource = InvoiceDAO.Instance.GetListInvoiceByDate(checkIn, checkOut);
+        }
+
+        void AddAccountBinding()
+        {
+            txtUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName"));
+            txtShowName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "ShowName"));
+            txtAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type"));
+            // Chuyển về thành "Admin" hoặc "Staff"
+        }
+
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
         void AddFoodBinding()
@@ -74,6 +95,11 @@ namespace CoffeeFancy
         #endregion
 
         #region Events
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
             foodList.DataSource = SearchFoodByName(txtSearchFoodName.Text);
@@ -193,8 +219,6 @@ namespace CoffeeFancy
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
-
-
 
         #endregion
 

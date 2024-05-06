@@ -101,14 +101,14 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtShowName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtAccountType = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tpInvoice.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -841,6 +841,7 @@
             this.btnShowAccount.TabIndex = 3;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -906,22 +907,13 @@
             // 
             // panel24
             // 
-            this.panel24.Controls.Add(this.comboBox1);
+            this.panel24.Controls.Add(this.txtAccountType);
             this.panel24.Controls.Add(this.label11);
             this.panel24.Location = new System.Drawing.Point(4, 119);
             this.panel24.Margin = new System.Windows.Forms.Padding(4);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(485, 50);
             this.panel24.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(203, 5);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(277, 24);
-            this.comboBox1.TabIndex = 1;
             // 
             // label11
             // 
@@ -935,7 +927,7 @@
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.textBox3);
+            this.panel25.Controls.Add(this.txtShowName);
             this.panel25.Controls.Add(this.label12);
             this.panel25.Location = new System.Drawing.Point(4, 62);
             this.panel25.Margin = new System.Windows.Forms.Padding(4);
@@ -943,13 +935,13 @@
             this.panel25.Size = new System.Drawing.Size(485, 50);
             this.panel25.TabIndex = 2;
             // 
-            // textBox3
+            // txtShowName
             // 
-            this.textBox3.Location = new System.Drawing.Point(203, 4);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(277, 22);
-            this.textBox3.TabIndex = 1;
+            this.txtShowName.Location = new System.Drawing.Point(203, 4);
+            this.txtShowName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtShowName.Name = "txtShowName";
+            this.txtShowName.Size = new System.Drawing.Size(277, 22);
+            this.txtShowName.TabIndex = 1;
             // 
             // label12
             // 
@@ -963,7 +955,7 @@
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.textBox4);
+            this.panel26.Controls.Add(this.txtUserName);
             this.panel26.Controls.Add(this.label13);
             this.panel26.Location = new System.Drawing.Point(4, 4);
             this.panel26.Margin = new System.Windows.Forms.Padding(4);
@@ -971,14 +963,14 @@
             this.panel26.Size = new System.Drawing.Size(485, 50);
             this.panel26.TabIndex = 1;
             // 
-            // textBox4
+            // txtUserName
             // 
-            this.textBox4.Location = new System.Drawing.Point(203, 4);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(277, 22);
-            this.textBox4.TabIndex = 1;
+            this.txtUserName.Location = new System.Drawing.Point(203, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.ReadOnly = true;
+            this.txtUserName.Size = new System.Drawing.Size(277, 22);
+            this.txtUserName.TabIndex = 1;
             // 
             // label13
             // 
@@ -989,6 +981,14 @@
             this.label13.Size = new System.Drawing.Size(215, 46);
             this.label13.TabIndex = 0;
             this.label13.Text = "Tên Account:";
+            // 
+            // txtAccountType
+            // 
+            this.txtAccountType.Location = new System.Drawing.Point(203, 5);
+            this.txtAccountType.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAccountType.Name = "txtAccountType";
+            this.txtAccountType.Size = new System.Drawing.Size(277, 22);
+            this.txtAccountType.TabIndex = 2;
             // 
             // fAdmin
             // 
@@ -1041,6 +1041,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             this.panel22.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
@@ -1123,14 +1124,14 @@
         private System.Windows.Forms.DataGridView dtgvAccount;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtShowName;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.TextBox txtAccountType;
     }
 }

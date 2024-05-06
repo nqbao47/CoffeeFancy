@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CoffeeFancy.DAO
 {
@@ -38,6 +39,11 @@ namespace CoffeeFancy.DAO
             int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] {userName, displayName, pass, newPass});
             
             return result > 0;
+        }
+
+        public DataTable GetListAccount()
+        {
+            return DataProvider.Instance.ExecuteQuery("select UserName, ShowName, Type from Account");
         }
         public Account GetAccountByUsername(string userName)
         {
