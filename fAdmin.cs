@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -123,7 +124,17 @@ namespace CoffeeFancy
 
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(txtFoodID.Text);
 
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Xoá món thành công!");
+                LoadlistFood();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi khi Xoá món!");
+            }
         }
 
         private void btnEditFood_Click(object sender, EventArgs e)

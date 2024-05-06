@@ -19,6 +19,11 @@ namespace CoffeeFancy.DAO
         } 
         private InvoiceInfoDAO() { }
 
+        // Bất cứ InvoiceInfo nào dính với FoodID đang xoá đều phải xoá hết
+        public void DeleteInvoiceInfoByFoodID(int id) {
+            DataProvider.Instance.ExecuteQuery("delete dbo.InvoiceInfo WHERE idFood =" + id);
+        }
+
         public List<InvoiceInfo> GetListInvoiceInfo(int id) { 
             List<InvoiceInfo> listInvoiceInfo = new List<InvoiceInfo>();
 

@@ -72,5 +72,16 @@ namespace CoffeeFancy.DAO
             return result > 0;
         }
 
+        public bool DeleteFood(int idFood)
+        {
+            InvoiceInfoDAO.Instance.DeleteInvoiceInfoByFoodID(idFood); // Bất cứ InvoiceInfo nào dính với FoodID đang xoá đều phải xoá hết trc khi xoá Food
+
+            string query = string.Format("Delete Food where id = {0}", idFood);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
     }
 }
