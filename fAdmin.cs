@@ -47,10 +47,10 @@ namespace CoffeeFancy
 
         void AddFoodBinding()
         {
-            txtFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Id"));
-            txtFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
+            txtFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Id", true, DataSourceUpdateMode.Never));
+            txtFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
             //cbbFoodCategory.DataBindings.Add(new Binding("Value", dtgvCategory.DataSource, "Name"));
-            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price"));
+            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
 
         void LoadCategoryIntoCbb(ComboBox cb)
@@ -104,5 +104,20 @@ namespace CoffeeFancy
             }
         }
 
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            string name = txtFoodName.Text;
+            int categoryID = (cbbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nmFoodPrice.Value;
+            
+            if(FoodDAO.Instance.InsertFood(name, categoryID, price))
+            {
+                MessageBox.Show("Thêm món thành công!");
+                LoadlistFood();
+            } else
+            {
+                MessageBox.Show("Đã có lỗi khi thêm món!");
+            }
+        }
     }
 }

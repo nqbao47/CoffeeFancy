@@ -54,5 +54,13 @@ namespace CoffeeFancy.DAO
             return list;
         }
 
+        public bool InsertFood(string name, int id, float price)
+        {
+            string query = string.Format("insert dbo.Food (name , idCategory, price) values (N'{0}', {1}, {2})", name, id, price);
+            
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        
+            return result > 0;
+        }
     }
 }
