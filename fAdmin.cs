@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CoffeeFancy
 {
@@ -117,6 +118,29 @@ namespace CoffeeFancy
             } else
             {
                 MessageBox.Show("Đã có lỗi khi thêm món!");
+            }
+        }
+
+        private void btnDeleteFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+            string name = txtFoodName.Text;
+            int categoryID = (cbbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nmFoodPrice.Value;
+            int id = Convert.ToInt32(txtFoodID.Text);
+
+            if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
+            {
+                MessageBox.Show("Cập nhật món thành công!");
+                LoadlistFood();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi khi cập nhật món!");
             }
         }
     }
