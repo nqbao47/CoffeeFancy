@@ -35,7 +35,7 @@
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPasswordInfo = new System.Windows.Forms.TextBox();
             this.txtPassWord = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.panel2.Controls.Add(this.txtUserName);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(45, 33);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(547, 50);
             this.panel2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(200, 4);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(325, 22);
@@ -86,7 +86,7 @@
             this.panel1.Controls.Add(this.txtDisplayName);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(45, 112);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(547, 50);
             this.panel1.TabIndex = 2;
@@ -94,7 +94,7 @@
             // txtDisplayName
             // 
             this.txtDisplayName.Location = new System.Drawing.Point(200, 4);
-            this.txtDisplayName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDisplayName.Margin = new System.Windows.Forms.Padding(4);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(325, 22);
             this.txtDisplayName.TabIndex = 1;
@@ -111,22 +111,21 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtPasswordInfo);
             this.panel3.Controls.Add(this.txtPassWord);
             this.panel3.Location = new System.Drawing.Point(45, 193);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(547, 50);
             this.panel3.TabIndex = 3;
             // 
-            // textBox1
+            // txtPasswordInfo
             // 
-            this.textBox1.Location = new System.Drawing.Point(200, 4);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtPasswordInfo.Location = new System.Drawing.Point(200, 4);
+            this.txtPasswordInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPasswordInfo.Name = "txtPasswordInfo";
+            this.txtPasswordInfo.Size = new System.Drawing.Size(325, 22);
+            this.txtPasswordInfo.TabIndex = 1;
             // 
             // txtPassWord
             // 
@@ -143,7 +142,7 @@
             this.panel4.Controls.Add(this.txtNewPassword);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(45, 274);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(547, 50);
             this.panel4.TabIndex = 4;
@@ -151,7 +150,7 @@
             // txtNewPassword
             // 
             this.txtNewPassword.Location = new System.Drawing.Point(200, 4);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(325, 22);
             this.txtNewPassword.TabIndex = 1;
@@ -172,7 +171,7 @@
             this.panel5.Controls.Add(this.txtReEnterPassword);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Location = new System.Drawing.Point(45, 351);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(547, 50);
             this.panel5.TabIndex = 5;
@@ -180,7 +179,7 @@
             // txtReEnterPassword
             // 
             this.txtReEnterPassword.Location = new System.Drawing.Point(200, 4);
-            this.txtReEnterPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReEnterPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtReEnterPassword.Name = "txtReEnterPassword";
             this.txtReEnterPassword.Size = new System.Drawing.Size(325, 22);
             this.txtReEnterPassword.TabIndex = 1;
@@ -200,7 +199,7 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(457, 449);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(115, 59);
             this.btnExit.TabIndex = 6;
@@ -211,7 +210,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(311, 449);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 59);
             this.btnUpdate.TabIndex = 7;
@@ -233,7 +232,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fAccountProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin cá nhân";
@@ -260,7 +259,7 @@
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPasswordInfo;
         private System.Windows.Forms.Label txtPassWord;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtNewPassword;

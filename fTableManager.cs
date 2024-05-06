@@ -38,7 +38,7 @@ namespace CoffeeFancy
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Enabled = type == 1;
-            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.ShowName +")";
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.ShowName + ")";
         }
         void LoadCategory()
         {

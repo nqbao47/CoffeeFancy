@@ -31,18 +31,18 @@ namespace CoffeeFancy
 
         void UpdateAccoutInfo()
         {
-            string displayuName = txtDisplayName.Text;
-            string password = txtPassWord.Text;
+            string displayName = txtDisplayName.Text;
+            string password = txtPasswordInfo.Text;
             string newPass = txtNewPassword.Text;
             string reenterPass = txtReEnterPassword.Text;
             string userName = txtUserName.Text;
 
-            if (newPass.Equals(reenterPass))
+            if (!newPass.Equals(reenterPass))
             {
                 MessageBox.Show("Mật khẩu không khớp ! Vui lòng nhập lại");
             } else
             {
-                if (AccountDAO.Instance.UpdateAccount(userName, displayuName, password, newPass))
+                if (AccountDAO.Instance.UpdateAccount(userName, displayName, password, newPass))
                 {
                     MessageBox.Show("Cập nhật thành công !");
                     if (updateAccount != null)
