@@ -22,6 +22,9 @@ namespace CoffeeFancy
 
         // Lấy ra account
         BindingSource accountList = new BindingSource();
+
+        // Không cho phép xoá Account đang login
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -65,7 +68,7 @@ namespace CoffeeFancy
         {
             txtUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName"));
             txtShowName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "ShowName"));
-            txtAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type"));
+            nmAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type"));
             // Chuyển về thành "Admin" hoặc "Staff"
         }
 
@@ -92,9 +95,97 @@ namespace CoffeeFancy
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
+
+        void AddAccount(string userName, string showName, int type)
+        {
+           if(AccountDAO.Instance.InsertAccount(userName, showName, type))
+            {
+                MessageBox.Show("Thêm account thành công!");
+            } else
+            {
+                MessageBox.Show("Thêm account thất bại");
+            }
+            LoadAccount();
+        }
+
+        void EditAccount(string userName, string showName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, showName, type))
+            {
+                MessageBox.Show("Cập nhật account thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật account thất bại");
+            }
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Không thể xoá ! Vì Account đang được Login");
+                return;
+            }
+                
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xoá account thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Xoá nhật account thất bại");
+            }
+            LoadAccount();
+        }
+
+        void ResetPass(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Reset password thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Reset password thất bại");
+            }
+        }
+
         #endregion
 
         #region Events
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txtUserName.Text;
+            string showName = txtShowName.Text;
+            int type = (int)nmAccountType.Value;
+
+            AddAccount(userName, showName, type);
+        }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txtUserName.Text;
+
+            DeleteAccount(userName);
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txtUserName.Text;
+            string showName = txtShowName.Text;
+            int type = (int)nmAccountType.Value;
+
+            EditAccount(userName, showName, type);
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = txtUserName.Text;
+
+            ResetPass(userName);
+        }
         private void btnShowAccount_Click(object sender, EventArgs e)
         {
             LoadAccount();
@@ -219,6 +310,8 @@ namespace CoffeeFancy
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
+
+
 
         #endregion
 
