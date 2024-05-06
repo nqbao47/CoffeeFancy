@@ -17,11 +17,16 @@ namespace CoffeeFancy
         public fAdmin()
         {
             InitializeComponent();
-            LoadDateTimePickerInvoice();
-            LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadMain();
         }
 
         #region Methods
+        void LoadMain()
+        {
+            LoadDateTimePickerInvoice();
+            LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadlistFood();
+        }
         void LoadDateTimePickerInvoice()
         {
             DateTime today = DateTime.Now;
@@ -31,6 +36,11 @@ namespace CoffeeFancy
         void LoadListInvoiceByDate(DateTime checkIn, DateTime checkOut)
         {
             dtgvInvoice.DataSource = InvoiceDAO.Instance.GetListInvoiceByDate(checkIn, checkOut);
+        }
+
+        void LoadlistFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
         }
         #endregion
 
@@ -42,5 +52,9 @@ namespace CoffeeFancy
 
         #endregion
 
+        private void btnShowFood_Click(object sender, EventArgs e)
+        {
+            LoadlistFood();
+        }
     }
 }
