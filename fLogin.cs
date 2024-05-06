@@ -34,8 +34,10 @@ namespace CoffeeFancy
                 this.Show();
             } else
             {
-                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // Cus Style
         }
 
         bool Login(string userName, string passWord)
@@ -59,6 +61,31 @@ namespace CoffeeFancy
                 e.Cancel = true;
             } 
                 
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void txtPassWord_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tính năng đang được phát triển ...","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
