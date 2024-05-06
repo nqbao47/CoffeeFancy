@@ -68,13 +68,6 @@ namespace CoffeeFancy
         #endregion
 
         #region Events
-        private void btnViewInvoice_Click(object sender, EventArgs e)
-        {
-            LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
-        }
-
-        #endregion
-
         private void btnShowFood_Click(object sender, EventArgs e)
         {
             LoadlistFood();
@@ -85,16 +78,16 @@ namespace CoffeeFancy
             if (dtgvFood.SelectedCells.Count > 0)
             {
                 int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["idCategory"].Value;  // Các lấy dữ liệu từ dataGridView ra
-                
-                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
 
-                    cbbFoodCategory.SelectedItem = category;
+                Category category = CategoryDAO.Instance.GetCategoryByID(id);
+
+                cbbFoodCategory.SelectedItem = category;
 
                 int index = -1;
-                int i = 0 ;
+                int i = 0;
                 foreach (Category item in cbbFoodCategory.Items)
                 {
-                    if(item.ID == category.ID)
+                    if (item.ID == category.ID)
                     {
                         index = i;
                         break;
@@ -111,12 +104,15 @@ namespace CoffeeFancy
             string name = txtFoodName.Text;
             int categoryID = (cbbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
-            
-            if(FoodDAO.Instance.InsertFood(name, categoryID, price))
+
+            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
             {
                 MessageBox.Show("Thêm món thành công!");
                 LoadlistFood();
-            } else
+                if (insertFood != null)
+                    insertFood(this, new EventArgs());
+            }
+            else
             {
                 MessageBox.Show("Đã có lỗi khi thêm món!");
             }
@@ -130,6 +126,8 @@ namespace CoffeeFancy
             {
                 MessageBox.Show("Xoá món thành công!");
                 LoadlistFood();
+                if (deleteFood != null)
+                    deleteFood(this, new EventArgs());
             }
             else
             {
@@ -148,11 +146,45 @@ namespace CoffeeFancy
             {
                 MessageBox.Show("Cập nhật món thành công!");
                 LoadlistFood();
+                if (updateFood != null)
+                    updateFood(this, new EventArgs());
             }
             else
             {
                 MessageBox.Show("Đã có lỗi khi cập nhật món!");
             }
         }
+        private void btnViewInvoice_Click(object sender, EventArgs e)
+        {
+            LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
+        }
+
+        // Event cho món
+
+        private event EventHandler insertFood;
+        public event EventHandler InsertFood
+        {
+            add { insertFood += value; }
+            remove { insertFood -= value;}
+        }
+
+        private event EventHandler deleteFood;
+        public event EventHandler DeleteFood
+        {
+            add { deleteFood += value; }
+            remove { deleteFood -= value; }
+        }
+
+        private event EventHandler updateFood;
+        public event EventHandler UpdateFood
+        {
+            add { updateFood += value; }
+            remove { updateFood -= value; }
+        }
+
+
+        #endregion
+
+
     }
 }
