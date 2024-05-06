@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,9 +28,22 @@ namespace CoffeeFancy.DAO
         #region Login func
         public bool Login(string userName, string passWord)
         {
+            // Mã hoá password sử dụng MD5
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWord); // chuyển password thành mảng byte
+            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp); // Tạo ra mảng kw sau khi mã hoá
+
+            string hasPass = "";
+
+            foreach(byte item in hasData)
+            {
+                hasPass += item;    
+            }
+            /*var list = hasData.ToString(); // Chuyển sang ToString để sử dụng reverse() để tăng sercurity
+            list.Reverse();*/
+
             string query = "USP_Login @userName , @passWord";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {userName, passWord});
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {userName, hasPass /*list*/});
 
             return result.Rows.Count > 0;
         }
@@ -60,7 +74,8 @@ namespace CoffeeFancy.DAO
 
         public bool InsertAccount(string name, string showName , int type)
         {
-            string query = string.Format("insert dbo.Account (UserName , ShowName, Type) values (N'{0}', N'{1}', N'{2}')", name, showName, type);
+            string query = string.Format("insert dbo.Account (UserName , ShowName, Type, PassWord) values (N'{0}', N'{1}', {2}, N'{3}')", name, showName, type, "1962026656160185351301320480154111117132155");
+
 
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
@@ -87,7 +102,7 @@ namespace CoffeeFancy.DAO
 
         public bool ResetPassword(string name)
         {
-            string query = string.Format("update Account set PassWord = N'0' where UserName = N'{0}'", name);
+            string query = string.Format("update Account set PassWord = N'1962026656160185351301320480154111117132155' where UserName = N'{0}'", name);
 
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
