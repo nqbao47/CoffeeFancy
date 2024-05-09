@@ -50,6 +50,24 @@ namespace CoffeeFancy.DAO
 
             return category;
         }
+
+        public List<Category> SearchCategoryByName(string name)
+        {
+            List<Category> list = new List<Category>();
+
+            string query = string.Format("select * from dbo.Category where dbo.fuConvertToUnsign1(name) like N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Category category = new Category(item);
+                list.Add(category);
+            }
+
+            return list;
+        }
+
     }
 
 }

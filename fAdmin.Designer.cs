@@ -88,8 +88,38 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txtSearchCategory = new System.Windows.Forms.TextBox();
+            this.btnSearchCategory = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.txtCategoryID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.dtgvCategory = new System.Windows.Forms.DataGridView();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.btnShowCategory = new System.Windows.Forms.Button();
+            this.btnEditCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.dtgvTableFood = new System.Windows.Forms.DataGridView();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnShowTableFood = new System.Windows.Forms.Button();
+            this.btnEditTableFood = new System.Windows.Forms.Button();
+            this.btnDeleteTableFood = new System.Windows.Forms.Button();
+            this.btnAddTableFood = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpInvoice.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -116,6 +146,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmAccountType)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTableFood)).BeginInit();
+            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -576,7 +619,10 @@
             // 
             // tpCategory
             // 
-            this.tpCategory.Controls.Add(this.label7);
+            this.tpCategory.Controls.Add(this.panel18);
+            this.tpCategory.Controls.Add(this.panel11);
+            this.tpCategory.Controls.Add(this.panel12);
+            this.tpCategory.Controls.Add(this.panel17);
             this.tpCategory.Location = new System.Drawing.Point(4, 39);
             this.tpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.tpCategory.Name = "tpCategory";
@@ -588,7 +634,8 @@
             // 
             // tpTable
             // 
-            this.tpTable.Controls.Add(this.label5);
+            this.tpTable.Controls.Add(this.panel21);
+            this.tpTable.Controls.Add(this.panel19);
             this.tpTable.Location = new System.Drawing.Point(4, 39);
             this.tpTable.Margin = new System.Windows.Forms.Padding(4);
             this.tpTable.Name = "tpTable";
@@ -864,25 +911,410 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel11.Controls.Add(this.button6);
+            this.panel11.Controls.Add(this.txtSearchCategory);
+            this.panel11.Controls.Add(this.btnSearchCategory);
+            this.panel11.Location = new System.Drawing.Point(714, 14);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(338, 108);
+            this.panel11.TabIndex = 5;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(4, 7);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(312, 43);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "Tìm Danh Mục";
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // txtSearchCategory
+            // 
+            this.txtSearchCategory.Location = new System.Drawing.Point(4, 66);
+            this.txtSearchCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchCategory.Name = "txtSearchCategory";
+            this.txtSearchCategory.Size = new System.Drawing.Size(230, 23);
+            this.txtSearchCategory.TabIndex = 5;
+            // 
+            // btnSearchCategory
+            // 
+            this.btnSearchCategory.BackColor = System.Drawing.Color.Salmon;
+            this.btnSearchCategory.FlatAppearance.BorderSize = 0;
+            this.btnSearchCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchCategory.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSearchCategory.ForeColor = System.Drawing.Color.White;
+            this.btnSearchCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchCategory.Location = new System.Drawing.Point(242, 58);
+            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchCategory.Name = "btnSearchCategory";
+            this.btnSearchCategory.Size = new System.Drawing.Size(88, 39);
+            this.btnSearchCategory.TabIndex = 4;
+            this.btnSearchCategory.Text = "Tìm";
+            this.btnSearchCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchCategory.UseVisualStyleBackColor = false;
+            this.btnSearchCategory.Click += new System.EventHandler(this.btnSearchCategory_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel12.Controls.Add(this.button8);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Controls.Add(this.panel16);
+            this.panel12.Location = new System.Drawing.Point(714, 130);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(338, 312);
+            this.panel12.TabIndex = 4;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.button8.ForeColor = System.Drawing.Color.Black;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(0, 21);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(330, 72);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "Thông tin món";
+            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.numericUpDown1);
+            this.panel13.Controls.Add(this.label6);
+            this.panel13.Location = new System.Drawing.Point(4, 258);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(330, 50);
+            this.panel13.TabIndex = 4;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericUpDown1.Location = new System.Drawing.Point(153, 15);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(173, 19);
+            this.numericUpDown1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(4, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 46);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Giá:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.comboBox1);
+            this.panel14.Controls.Add(this.label7);
+            this.panel14.Location = new System.Drawing.Point(4, 204);
+            this.panel14.Margin = new System.Windows.Forms.Padding(4);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(330, 50);
+            this.panel14.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(155, 5);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 24);
+            this.comboBox1.TabIndex = 1;
+            // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(241, 236);
+            this.label7.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(4, -4);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(581, 78);
+            this.label7.Size = new System.Drawing.Size(160, 46);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Đang phát triển...";
+            this.label7.Text = "Danh mục:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // panel15
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(241, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(581, 78);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Đang phát triển...";
+            this.panel15.Controls.Add(this.txtCategoryName);
+            this.panel15.Controls.Add(this.label8);
+            this.panel15.Location = new System.Drawing.Point(4, 151);
+            this.panel15.Margin = new System.Windows.Forms.Padding(4);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(330, 50);
+            this.panel15.TabIndex = 2;
+            // 
+            // txtCategoryName
+            // 
+            this.txtCategoryName.Location = new System.Drawing.Point(155, 4);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(171, 23);
+            this.txtCategoryName.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(4, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(143, 46);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Tên món:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.txtCategoryID);
+            this.panel16.Controls.Add(this.label9);
+            this.panel16.Location = new System.Drawing.Point(4, 97);
+            this.panel16.Margin = new System.Windows.Forms.Padding(4);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(330, 50);
+            this.panel16.TabIndex = 1;
+            // 
+            // txtCategoryID
+            // 
+            this.txtCategoryID.Location = new System.Drawing.Point(155, 4);
+            this.txtCategoryID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCategoryID.Name = "txtCategoryID";
+            this.txtCategoryID.ReadOnly = true;
+            this.txtCategoryID.Size = new System.Drawing.Size(171, 23);
+            this.txtCategoryID.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(4, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 46);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "ID:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.dtgvCategory);
+            this.panel17.Location = new System.Drawing.Point(8, 8);
+            this.panel17.Margin = new System.Windows.Forms.Padding(4);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(698, 433);
+            this.panel17.TabIndex = 3;
+            // 
+            // dtgvCategory
+            // 
+            this.dtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvCategory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtgvCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCategory.Location = new System.Drawing.Point(4, 6);
+            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvCategory.Name = "dtgvCategory";
+            this.dtgvCategory.ReadOnly = true;
+            this.dtgvCategory.RowHeadersWidth = 51;
+            this.dtgvCategory.Size = new System.Drawing.Size(690, 423);
+            this.dtgvCategory.TabIndex = 0;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.btnShowCategory);
+            this.panel18.Controls.Add(this.btnEditCategory);
+            this.panel18.Controls.Add(this.btnDeleteCategory);
+            this.panel18.Controls.Add(this.btnAddCategory);
+            this.panel18.Location = new System.Drawing.Point(260, 466);
+            this.panel18.Margin = new System.Windows.Forms.Padding(4);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(543, 61);
+            this.panel18.TabIndex = 6;
+            // 
+            // btnShowCategory
+            // 
+            this.btnShowCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnShowCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowCategory.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnShowCategory.ForeColor = System.Drawing.Color.White;
+            this.btnShowCategory.Location = new System.Drawing.Point(412, 4);
+            this.btnShowCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowCategory.Name = "btnShowCategory";
+            this.btnShowCategory.Size = new System.Drawing.Size(128, 53);
+            this.btnShowCategory.TabIndex = 3;
+            this.btnShowCategory.Text = "Xem";
+            this.btnShowCategory.UseVisualStyleBackColor = false;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btnEditCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCategory.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnEditCategory.ForeColor = System.Drawing.Color.White;
+            this.btnEditCategory.Location = new System.Drawing.Point(276, 4);
+            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(128, 53);
+            this.btnEditCategory.TabIndex = 2;
+            this.btnEditCategory.Text = "Sửa";
+            this.btnEditCategory.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteCategory.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(140, 4);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(128, 53);
+            this.btnDeleteCategory.TabIndex = 1;
+            this.btnDeleteCategory.Text = "Xoá";
+            this.btnDeleteCategory.UseVisualStyleBackColor = false;
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCategory.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnAddCategory.ForeColor = System.Drawing.Color.White;
+            this.btnAddCategory.Location = new System.Drawing.Point(4, 4);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(128, 53);
+            this.btnAddCategory.TabIndex = 0;
+            this.btnAddCategory.Text = "Thêm";
+            this.btnAddCategory.UseVisualStyleBackColor = false;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.dtgvTableFood);
+            this.panel19.Location = new System.Drawing.Point(8, 8);
+            this.panel19.Margin = new System.Windows.Forms.Padding(4);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(698, 433);
+            this.panel19.TabIndex = 4;
+            // 
+            // dtgvTableFood
+            // 
+            this.dtgvTableFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvTableFood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtgvTableFood.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgvTableFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTableFood.Location = new System.Drawing.Point(4, 6);
+            this.dtgvTableFood.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvTableFood.Name = "dtgvTableFood";
+            this.dtgvTableFood.ReadOnly = true;
+            this.dtgvTableFood.RowHeadersWidth = 51;
+            this.dtgvTableFood.Size = new System.Drawing.Size(690, 423);
+            this.dtgvTableFood.TabIndex = 0;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.btnShowTableFood);
+            this.panel21.Controls.Add(this.btnEditTableFood);
+            this.panel21.Controls.Add(this.btnDeleteTableFood);
+            this.panel21.Controls.Add(this.btnAddTableFood);
+            this.panel21.Location = new System.Drawing.Point(260, 462);
+            this.panel21.Margin = new System.Windows.Forms.Padding(4);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(543, 61);
+            this.panel21.TabIndex = 7;
+            // 
+            // btnShowTableFood
+            // 
+            this.btnShowTableFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnShowTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowTableFood.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnShowTableFood.ForeColor = System.Drawing.Color.White;
+            this.btnShowTableFood.Location = new System.Drawing.Point(412, 4);
+            this.btnShowTableFood.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowTableFood.Name = "btnShowTableFood";
+            this.btnShowTableFood.Size = new System.Drawing.Size(128, 53);
+            this.btnShowTableFood.TabIndex = 3;
+            this.btnShowTableFood.Text = "Xem";
+            this.btnShowTableFood.UseVisualStyleBackColor = false;
+            this.btnShowTableFood.Click += new System.EventHandler(this.btnShowTableFood_Click);
+            // 
+            // btnEditTableFood
+            // 
+            this.btnEditTableFood.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btnEditTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditTableFood.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnEditTableFood.ForeColor = System.Drawing.Color.White;
+            this.btnEditTableFood.Location = new System.Drawing.Point(276, 4);
+            this.btnEditTableFood.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditTableFood.Name = "btnEditTableFood";
+            this.btnEditTableFood.Size = new System.Drawing.Size(128, 53);
+            this.btnEditTableFood.TabIndex = 2;
+            this.btnEditTableFood.Text = "Sửa";
+            this.btnEditTableFood.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteTableFood
+            // 
+            this.btnDeleteTableFood.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTableFood.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteTableFood.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteTableFood.Location = new System.Drawing.Point(140, 4);
+            this.btnDeleteTableFood.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteTableFood.Name = "btnDeleteTableFood";
+            this.btnDeleteTableFood.Size = new System.Drawing.Size(128, 53);
+            this.btnDeleteTableFood.TabIndex = 1;
+            this.btnDeleteTableFood.Text = "Xoá";
+            this.btnDeleteTableFood.UseVisualStyleBackColor = false;
+            // 
+            // btnAddTableFood
+            // 
+            this.btnAddTableFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTableFood.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnAddTableFood.ForeColor = System.Drawing.Color.White;
+            this.btnAddTableFood.Location = new System.Drawing.Point(4, 4);
+            this.btnAddTableFood.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddTableFood.Name = "btnAddTableFood";
+            this.btnAddTableFood.Size = new System.Drawing.Size(128, 53);
+            this.btnAddTableFood.TabIndex = 0;
+            this.btnAddTableFood.Text = "Thêm";
+            this.btnAddTableFood.UseVisualStyleBackColor = false;
             // 
             // fAdmin
             // 
@@ -920,9 +1352,7 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).EndInit();
             this.tpCategory.ResumeLayout(false);
-            this.tpCategory.PerformLayout();
             this.tpTable.ResumeLayout(false);
-            this.tpTable.PerformLayout();
             this.tpAccount.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
@@ -933,6 +1363,22 @@
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTableFood)).EndInit();
+            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -998,7 +1444,37 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtSearchCategory;
+        private System.Windows.Forms.Button btnSearchCategory;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.TextBox txtCategoryID;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.DataGridView dtgvCategory;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Button btnShowCategory;
+        private System.Windows.Forms.Button btnEditCategory;
+        private System.Windows.Forms.Button btnDeleteCategory;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.DataGridView dtgvTableFood;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Button btnShowTableFood;
+        private System.Windows.Forms.Button btnEditTableFood;
+        private System.Windows.Forms.Button btnDeleteTableFood;
+        private System.Windows.Forms.Button btnAddTableFood;
     }
 }

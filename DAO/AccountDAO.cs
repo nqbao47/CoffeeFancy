@@ -38,12 +38,10 @@ namespace CoffeeFancy.DAO
             {
                 hasPass += item;    
             }
-            /*var list = hasData.ToString(); // Chuyển sang ToString để sử dụng reverse() để tăng sercurity
-            list.Reverse();*/
 
             string query = "USP_Login @userName , @passWord";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {userName, hasPass /*list*/});
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {userName, hasPass});
 
             return result.Rows.Count > 0;
         }

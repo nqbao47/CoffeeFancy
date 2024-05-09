@@ -20,6 +20,10 @@ namespace CoffeeFancy
         // Xử lý bị thay đổi dataSource khi sử dụng Binding (mất kết nối Binding khi refresh)
         BindingSource foodList = new BindingSource();
 
+        BindingSource categoryList = new BindingSource();
+
+        BindingSource tableFoodList = new BindingSource();
+
         // Lấy ra account
         BindingSource accountList = new BindingSource();
 
@@ -38,10 +42,20 @@ namespace CoffeeFancy
 
             return listFood;
         }
+
+        List<Category> SearchCategoryByName(string name)
+        {
+            List<Category> listCategory = CategoryDAO.Instance.SearchCategoryByName(name);
+
+            return listCategory;
+        }
+
         void LoadMain()
         {
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
+            dtgvCategory.DataSource = categoryList;
+            dtgvTableFood.DataSource = tableFoodList;
 
             LoadDateTimePickerInvoice();
             LoadListInvoiceByDate(dtpkFromDate.Value, dtpkToDate.Value);
@@ -50,6 +64,8 @@ namespace CoffeeFancy
             LoadCategoryIntoCbb(cbbFoodCategory);
             AddFoodBinding();
             AddAccountBinding();
+            LoadlistCategory();
+            LoadlistTableFood();
         }
 
 
@@ -94,6 +110,16 @@ namespace CoffeeFancy
         void LoadlistFood()
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
+        }
+
+        void LoadlistCategory()
+        {
+            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+
+        void LoadlistTableFood()
+        {
+            tableFoodList.DataSource = TableDAO.Instance.LoadTableList();
         }
 
         void AddAccount(string userName, string showName, int type)
@@ -155,6 +181,26 @@ namespace CoffeeFancy
         #endregion
 
         #region Events
+        private void btnShowTableFood_Click(object sender, EventArgs e)
+        {
+            LoadlistTableFood();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult exitHome = MessageBox.Show(
+                "Bạn có chắc chắn muốn thoát ?",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (exitHome == DialogResult.Yes)
+                Close();
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadlistCategory();
+        }
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text;
@@ -195,6 +241,13 @@ namespace CoffeeFancy
         {
             foodList.DataSource = SearchFoodByName(txtSearchFoodName.Text);
         }
+
+        private void btnSearchCategory_Click(object sender, EventArgs e)
+        {
+            categoryList.DataSource = SearchCategoryByName(txtSearchCategory.Text);
+        }
+
+
         private void btnShowFood_Click(object sender, EventArgs e)
         {
             LoadlistFood();
@@ -310,21 +363,7 @@ namespace CoffeeFancy
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
-
-
-
-
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult exitHome = MessageBox.Show(
-                "Bạn có chắc chắn muốn thoát ?",
-                "Thông báo",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (exitHome == DialogResult.Yes)
-                Close();
-        }
     }
 }
