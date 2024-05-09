@@ -313,8 +313,18 @@ namespace CoffeeFancy
 
 
 
+
         #endregion
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult exitHome = MessageBox.Show(
+                "Bạn có chắc chắn muốn thoát ?",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (exitHome == DialogResult.Yes)
+                Close();
+        }
     }
 }

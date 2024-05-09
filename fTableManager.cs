@@ -234,8 +234,8 @@ namespace CoffeeFancy
             if (idInvoice != -1)
             {
                 if(MessageBox.Show(string.Format(
-                    "Xác nhận thanh toán cho: {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá \n{1} - ({1} / 100) x {2} = {3} ", table.Name, totalPrice, discount, finalTotalPrice), 
-                    "Thông báo", 
+                    "{0}\n\nTổng tiền: {1} \n\nTổng voucher giảm: {2} % \n\nTổng tiền sau khi áp voucher: {3} ", table.Name, totalPrice, discount, finalTotalPrice),
+                    "Xác nhận thanh toán", 
                     MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     InvoiceDAO.Instance.CheckOut(idInvoice, discount, (float)finalTotalPrice);
@@ -269,6 +269,15 @@ namespace CoffeeFancy
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {
+            /*Table table = lsvInvoice.Tag as Table;
+
+            if(table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn trước khi tiếp tục thao tác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }*/
+                
+
             int id1 = (lsvInvoice.Tag as Table).ID;
             int id2 = (cbbSwitchTable.SelectedItem as Table).ID;
 
@@ -282,8 +291,30 @@ namespace CoffeeFancy
             }
         }
 
+
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult exitHome = MessageBox.Show(
+                "Bạn có chắc chắn muốn thoát ?", 
+                "Thông báo", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question);
+            if(exitHome == DialogResult.Yes)
+                Close();
+            
+        }
+
+        private void btnMergeTable_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tính năng đang được phát triển ...", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void txtTotalPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

@@ -18,8 +18,8 @@ namespace CoffeeFancy.DAO
             private set { TableDAO.instance = value; }   
         }
 
-        public static int TableWidth = 90;
-        public static int TableHeight = 90;
+        public static int TableWidth = 100;
+        public static int TableHeight = 100;
         private TableDAO() { }
 
         public void SwitchTable(int id1, int id2)
